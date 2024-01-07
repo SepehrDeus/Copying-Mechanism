@@ -62,17 +62,51 @@ def plot_P_L_distribution(N, network_list):
     plt.xlabel('L')
     plt.ylabel('$P_L(N)$')
     plt.show()
-    plt.scatter(L_array[5000:7000], P_L_array[5000:7000], s=0.5)
+    plt.scatter(L_array[100:600], P_L_array[100:600], s=0.5)
     plt.xlabel('L')
     plt.ylabel('$P_L(N)$')
     plt.show()
     #print(P_L_distribution)
 
+
+def in_degree_distribution(gnc_list):
+    in_deg = np.zeros(gnc_list[0].N)
+    for gnc in gnc_list:
+        in_deg += gnc.in_deg
+    in_deg /= len(gnc_list)
+    return in_deg
+
+
+def out_degree_distribution(gnc_list):
+    out_deg = np.zeros(gnc_list[0].N)
+    for gnc in gnc_list:
+        out_deg += gnc.out_deg
+    out_deg /= len(gnc_list)
+    return out_deg
+
+
+def plot_in_degree_distribution(in_deg_dist, x_axis):
+    plt.scatter(x_axis, in_deg_dist, s=3)
+    plt.title("In-Degree Distribution")
+    plt.show()
+
+
+def plot_out_degree_distribution(out_deg_dist, x_axis):
+    plt.scatter(x_axis, out_deg_dist, s=3)
+    plt.title("Out-Degree Distribution")
+    plt.show()
+
+
 def main():
-    N = 100
-    M = 1000
+    N = 1000
+    M = 100
     gnc_list = [GNC(N) for _ in range(M)]
-    plot_P_L_distribution(N, gnc_list)
+    # plot_P_L_distribution(5, 10)
+    in_deg_dist = in_degree_distribution(gnc_list)
+    out_deg_dist = out_degree_distribution(gnc_list)
+    x_axis = np.arange(len(in_deg_dist))
+    plot_in_degree_distribution(in_deg_dist, x_axis)
+    plot_out_degree_distribution(out_deg_dist, x_axis)
 
 
 if __name__ == '__main__':
