@@ -98,8 +98,8 @@ def plot_out_degree_distribution(out_deg_dist, x_axis):
 
 
 def main():
-    N = 1000
-    M = 100
+    N = 100
+    M = 1000
     gnc_list = [GNC(N) for _ in range(M)]
     # plot_P_L_distribution(5, 10)
     in_deg_dist = in_degree_distribution(gnc_list)
