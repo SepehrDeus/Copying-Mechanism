@@ -69,7 +69,7 @@ def plot_P_L_distribution(N, network_list):
     #print(P_L_distribution)
 
 def main():
-    N = 1000
+    N = 100
     M = 1000
     gnc_list = [GNC(N) for _ in range(M)]
     plot_P_L_distribution(N, gnc_list)
