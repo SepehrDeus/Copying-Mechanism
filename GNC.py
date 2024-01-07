@@ -62,15 +62,15 @@ def plot_P_L_distribution(N, network_list):
     plt.xlabel('L')
     plt.ylabel('$P_L(N)$')
     plt.show()
-    plt.scatter(L_array[100:600], P_L_array[100:600], s=0.5)
+    plt.scatter(L_array[5000:7000], P_L_array[5000:7000], s=0.5)
     plt.xlabel('L')
     plt.ylabel('$P_L(N)$')
     plt.show()
     #print(P_L_distribution)
 
 def main():
-    N = 100
-    M = 10000
+    N = 1000
+    M = 1000
     gnc_list = [GNC(N) for _ in range(M)]
     plot_P_L_distribution(N, gnc_list)
 
