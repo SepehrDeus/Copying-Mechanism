@@ -51,7 +51,11 @@ class GNC:
 
 
 def plot_P_L_distribution(N, M):
+    L_list = []
+    P_L_list = []
     for ind in range(M):
+        GNC.create_network()
+
         pass
 
 def main():
