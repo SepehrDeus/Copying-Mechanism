@@ -50,9 +50,9 @@ class GNC:
         self.L += 1
 
 
-def plot_P_L_distribution():
-    pass
-
+def plot_P_L_distribution(N, M):
+    for ind in range(M):
+        pass
 
 def main():
     plot_P_L_distribution()
