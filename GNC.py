@@ -19,7 +19,7 @@ class GNC:
 
     def add_node(self, node):
         target = random.randint(0, node - 1)
-        self.add_link(node, target)   # connect to target
+        self.add_link(node, target)  # connect to target
         self.connect_to_ancestors(node, target)
 
     def connect_to_ancestors(self, node, target):
@@ -52,13 +52,13 @@ class GNC:
 
 def plot_P_L_distribution(N, network_list):
     P_L_distribution = {}
-    for i in range(N-1, int(N*(N-1)/2) + 1):
+    for i in range(N - 1, int(N * (N - 1) / 2) + 1):
         P_L_distribution[i] = 0
     for network in network_list:
         P_L_distribution[network.L] += 1
     P_L_array = np.array(list(P_L_distribution.values()))
     L_array = np.array(list(P_L_distribution.keys()))
-    plt.scatter(L_array, P_L_array, s = 1)
+    plt.scatter(L_array, P_L_array, s=1)
     plt.xlabel('L')
     plt.ylabel('$P_L(N)$')
     plt.show()
@@ -66,7 +66,8 @@ def plot_P_L_distribution(N, network_list):
     plt.xlabel('L')
     plt.ylabel('$P_L(N)$')
     plt.show()
-    #print(P_L_distribution)
+    # print(P_L_distribution)
+
 
 def in_degree_distribution(gnc_list):
     in_deg = np.zeros(gnc_list[0].N)
@@ -97,8 +98,15 @@ def plot_out_degree_distribution(out_deg_dist, x_axis):
 
 
 def main():
-    gnc_list = [GNC(1000) for _ in range(1000)]
-    plot_P_L_distribution(5, 10)
+    N = 1000
+    M = 100
+    gnc_list = [GNC(N) for _ in range(M)]
+    # plot_P_L_distribution(5, 10)
+    in_deg_dist = in_degree_distribution(gnc_list)
+    out_deg_dist = out_degree_distribution(gnc_list)
+    x_axis = np.arange(len(in_deg_dist))
+    plot_in_degree_distribution(in_deg_dist, x_axis)
+    plot_out_degree_distribution(out_deg_dist, x_axis)
 
 
 if __name__ == '__main__':
