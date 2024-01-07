@@ -89,10 +89,15 @@ def plot_distribution(y, x):
 
 
 def main():
+    N = 1000
+    M = 1000
     gnc_list = [GNC(1000) for _ in range(1000)]
-    plot_P_L_distribution(5, 10)
+    # plot_P_L_distribution(5, 10)
     in_deg_dist = in_degree_distribution(gnc_list)
     out_deg_dist = out_degree_distribution(gnc_list)
+    x_axis = np.arange(len(in_deg_dist))
+    plot_distribution(in_deg_dist, x_axis)
+    plot_distribution(out_deg_dist, x_axis)
 
 
 if __name__ == '__main__':
