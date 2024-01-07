@@ -50,27 +50,29 @@ class GNC:
         self.L += 1
 
 
-def plot_P_L_distribution(N, M):
+def plot_P_L_distribution(N, network_list):
     P_L_distribution = {}
     for i in range(N-1, int(N*(N-1)/2) + 1):
         P_L_distribution[i] = 0
-    print(P_L_distribution)
-    for ind in range(M):
-        network = GNC(N)
+    for network in network_list:
         P_L_distribution[network.L] += 1
-    P_L_array = np.array(P_L_distribution.values())
-    L_array = np.array(P_L_distribution.keys())
-    '''
-    plt.plot(L_array, P_L_array)
+    P_L_array = np.array(list(P_L_distribution.values()))
+    L_array = np.array(list(P_L_distribution.keys()))
+    plt.scatter(L_array, P_L_array, s = 1)
     plt.xlabel('L')
     plt.ylabel('$P_L(N)$')
-    '''
-    #plt.show()
-
+    plt.show()
+    plt.scatter(L_array[0: 10*N], P_L_array[0: 10*N], s=1)
+    plt.xlabel('L')
+    plt.ylabel('$P_L(N)$')
+    plt.show()
+    #print(P_L_distribution)
 
 def main():
-    gnc_list = [GNC(1000) for _ in range(1000)]
-    plot_P_L_distribution(5, 10)
+    N = 100
+    M = 10000
+    gnc_list = [GNC(N) for _ in range(M)]
+    plot_P_L_distribution(N, gnc_list)
 
 
 if __name__ == '__main__':
