@@ -51,15 +51,26 @@ class GNC:
 
 
 def plot_P_L_distribution(N, M):
-    L_list = []
-    P_L_list = []
+    P_L_distribution = {}
+    for i in range(N-1, int(N*(N-1)/2) + 1):
+        P_L_distribution[i] = 0
+    print(P_L_distribution)
     for ind in range(M):
-        GNC.create_network()
+        network = GNC(N)
+        network.create_network()
+        P_L_distribution[network.L] += 1
+    P_L_array = np.array(P_L_distribution.values())
+    L_array = np.array(P_L_distribution.keys())
+    '''
+    plt.plot(L_array, P_L_array)
+    plt.xlabel('L')
+    plt.ylabel('$P_L(N)$')
+    '''
+    #plt.show()
 
-        pass
 
 def main():
-    plot_P_L_distribution()
+    plot_P_L_distribution(5, 10)
 
 
 if __name__ == '__main__':
