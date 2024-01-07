@@ -84,20 +84,28 @@ def out_degree_distribution(gnc_list):
     return out_deg
 
 
-def plot_distribution(y, x):
-    pass
+def plot_in_degree_distribution(in_deg_dist, x_axis):
+    plt.scatter(x_axis, in_deg_dist, s=3)
+    plt.title("In-Degree Distribution")
+    plt.show()
+
+
+def plot_out_degree_distribution(out_deg_dist, x_axis):
+    plt.scatter(x_axis, out_deg_dist, s=3)
+    plt.title("Out-Degree Distribution")
+    plt.show()
 
 
 def main():
     N = 1000
-    M = 1000
-    gnc_list = [GNC(1000) for _ in range(1000)]
+    M = 100
+    gnc_list = [GNC(N) for _ in range(M)]
     # plot_P_L_distribution(5, 10)
     in_deg_dist = in_degree_distribution(gnc_list)
     out_deg_dist = out_degree_distribution(gnc_list)
     x_axis = np.arange(len(in_deg_dist))
-    plot_distribution(in_deg_dist, x_axis)
-    plot_distribution(out_deg_dist, x_axis)
+    plot_in_degree_distribution(in_deg_dist, x_axis)
+    plot_out_degree_distribution(out_deg_dist, x_axis)
 
 
 if __name__ == '__main__':
