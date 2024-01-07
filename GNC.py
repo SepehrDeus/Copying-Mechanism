@@ -57,7 +57,6 @@ def plot_P_L_distribution(N, M):
     print(P_L_distribution)
     for ind in range(M):
         network = GNC(N)
-        network.create_network()
         P_L_distribution[network.L] += 1
     P_L_array = np.array(P_L_distribution.values())
     L_array = np.array(P_L_distribution.keys())
