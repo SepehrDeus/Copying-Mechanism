@@ -62,7 +62,7 @@ def plot_P_L_distribution(N, network_list):
     plt.xlabel('L')
     plt.ylabel('$P_L(N)$')
     plt.show()
-    plt.scatter(L_array[0: 10*N], P_L_array[0: 10*N], s=1)
+    plt.scatter(L_array[100:600], P_L_array[100:600], s=0.5)
     plt.xlabel('L')
     plt.ylabel('$P_L(N)$')
     plt.show()
