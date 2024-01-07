@@ -69,6 +69,7 @@ def plot_P_L_distribution(N, M):
 
 
 def main():
+    gnc_list = [GNC(1000) for _ in range(1000)]
     plot_P_L_distribution(5, 10)
 
 
