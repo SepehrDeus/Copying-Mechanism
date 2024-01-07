@@ -50,11 +50,12 @@ class GNC:
         self.L += 1
 
 
+def plot_P_L_distribution():
+    pass
+
+
 def main():
-    network = GNC(10)
-    print(network.in_deg)
-    print(network.out_deg)
-    print(network.links)
+    plot_P_L_distribution()
 
 
 if __name__ == '__main__':
