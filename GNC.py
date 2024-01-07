@@ -68,9 +68,31 @@ def plot_P_L_distribution(N, M):
     #plt.show()
 
 
+def in_degree_distribution(gnc_list):
+    in_deg = np.zeros(gnc_list[0].N)
+    for gnc in gnc_list:
+        in_deg += gnc.in_deg
+    in_deg /= len(gnc_list)
+    return in_deg
+
+
+def out_degree_distribution(gnc_list):
+    out_deg = np.zeros(gnc_list[0].N)
+    for gnc in gnc_list:
+        out_deg += gnc.out_deg
+    out_deg /= len(gnc_list)
+    return out_deg
+
+
+def plot_distribution(y, x):
+    pass
+
+
 def main():
     gnc_list = [GNC(1000) for _ in range(1000)]
     plot_P_L_distribution(5, 10)
+    in_deg_dist = in_degree_distribution(gnc_list)
+    out_deg_dist = out_degree_distribution(gnc_list)
 
 
 if __name__ == '__main__':
